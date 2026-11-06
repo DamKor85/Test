@@ -1,0 +1,415 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kariera Biathlonisty</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Układ: jedna kolumna jak tablica wyników na stadionie. Duży numer miejsca, pod nim strzelnica z tarczami. */
+:root{--bg:#E8EEF1;--panel:#FFFFFF;--tint:#F2F6F8;--ink:#10202A;--mute:#53666F;--line:#C9D5DC;--accent:#165C8D;--accent-ink:#FFFFFF;--good:#17754F;--bad:#BF352B;--me:#FFEFB0;--ring:#10202A;--hit:#FFFFFF;--miss:#10202A;--gold:#B8921C;--silver:#7C8A93;--bronze:#A8672F;--fd:'Barlow Condensed','Arial Narrow',sans-serif;--fb:'Public Sans',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B171F;--panel:#12232D;--tint:#0E1D26;--ink:#E7EFF3;--mute:#93A7B3;--line:#26404D;--accent:#5FB3E6;--accent-ink:#06202F;--good:#4CC38A;--bad:#FF7A6E;--me:#4A3E12;--ring:#93A7B3;--hit:#F4F8FA;--miss:#02080B;--gold:#E0B93A;--silver:#A9B6BE;--bronze:#D08A52;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B171F;--panel:#12232D;--tint:#0E1D26;--ink:#E7EFF3;--mute:#93A7B3;--line:#26404D;--accent:#5FB3E6;--accent-ink:#06202F;--good:#4CC38A;--bad:#FF7A6E;--me:#4A3E12;--ring:#93A7B3;--hit:#F4F8FA;--miss:#02080B;--gold:#E0B93A;--silver:#A9B6BE;--bronze:#D08A52;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--fb);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+#app{max-width:1240px;margin:0 auto;padding-bottom:48px}.narrow{max-width:880px;margin:0 auto}
+.shell{display:grid;grid-template-columns:minmax(230px,1fr) minmax(0,1.7fr) minmax(250px,1fr);gap:14px;align-items:start}.shell>aside .card:last-child,.shell>section .card:last-child{margin-bottom:0}
+.shell .ev span:nth-child(2){white-space:normal;min-width:0}
+@media (max-width:1000px){.shell{grid-template-columns:minmax(0,1fr)}.shell>.mid{order:-1}}
+h1,h2,h3{font-family:var(--fd);font-weight:700;letter-spacing:.02em;text-transform:uppercase;margin:0 0 8px;line-height:1.1;text-wrap:balance}
+h1{font-size:34px}h2{font-size:26px}h3{font-size:19px;color:var(--mute)}
+p{margin:0 0 10px}.lead{font-size:16px;max-width:62ch}.mute{color:var(--mute)}.small{font-size:13px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:14px 0 10px;border-bottom:2px solid var(--ink);margin-bottom:16px}
+.brand{font:700 20px var(--fd);letter-spacing:.08em;text-transform:uppercase}.meta{font:500 16px var(--fd);letter-spacing:.04em;color:var(--mute)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:16px;margin-bottom:14px;min-width:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.btn{font:600 16px var(--fd);letter-spacing:.05em;text-transform:uppercase;border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:9px 16px;border-radius:2px;cursor:pointer}
+.btn:hover{background:var(--tint)}.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.btn.pri:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.4;cursor:not-allowed}.btn:focus-visible,input:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row.sp{justify-content:space-between}
+input[type=text]{font:inherit;width:100%;max-width:360px;padding:9px 10px;border:1.5px solid var(--line);background:var(--tint);color:var(--ink);border-radius:2px}
+.fl{font:600 14px var(--fd);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:14px 0 6px;display:block}
+.seg{display:flex;gap:6px;flex-wrap:wrap}.opt{font:500 15px var(--fb);border:1.5px solid var(--line);background:var(--tint);color:var(--ink);padding:8px 12px;border-radius:2px;cursor:pointer;text-align:left}
+.opt.on{border-color:var(--accent);background:var(--panel);box-shadow:inset 0 0 0 1.5px var(--accent);font-weight:600}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:6px}.cg .opt b{font:700 20px var(--fd);letter-spacing:.05em;display:block}.cg .opt span{font-size:12px;color:var(--mute)}
+.note{background:var(--tint);border-left:4px solid var(--accent);padding:10px 12px;margin:12px 0;border-radius:2px}
+.stat{display:grid;grid-template-columns:minmax(120px,170px) 1fr 38px;gap:10px;align-items:center;margin:7px 0}
+.bar{height:10px;background:var(--tint);border:1px solid var(--line);position:relative}.bar i{position:absolute;inset:0 auto 0 0;background:var(--accent)}
+.stat b{font:700 20px var(--fd);text-align:right}
+.tr-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;padding:10px 0;border-top:1px solid var(--line);align-items:center}
+.tr-row:first-of-type{border-top:0}.tr-row .h{font-size:13px;color:var(--mute)}
+.sc{overflow-x:auto}.tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.tbl th{font:600 13px var(--fd);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:left;padding:4px 8px;border-bottom:2px solid var(--ink);white-space:nowrap}
+.tbl td{padding:5px 8px;border-bottom:1px solid var(--line);white-space:nowrap}.tbl tr.me td{background:var(--me);font-weight:600}.tbl .r{text-align:right}.tbl tr.gap td{color:var(--mute);text-align:center;font-size:12px}
+.ev{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;padding:7px 0;border-top:1px solid var(--line);align-items:baseline}
+.ev:first-of-type{border-top:0}.ev .n{font:600 16px var(--fd);color:var(--mute)}.ev .res{font:600 16px var(--fd);text-align:right;font-variant-numeric:tabular-nums}.ev.cur{background:var(--me);margin:0 -8px;padding-inline:8px}
+.ev.sep{display:block;font:700 14px var(--fd);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-top:12px}
+.pill{display:inline-block;font:600 13px var(--fd);letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);padding:1px 8px;border-radius:2px}
+.hud{border:2px solid var(--ink);background:var(--panel);border-radius:2px}
+.hud-h{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--ink);color:var(--bg);padding:8px 14px;font:600 15px var(--fd);letter-spacing:.06em;text-transform:uppercase}
+.prog{display:flex;gap:3px;padding:10px 14px 0;flex-wrap:wrap}.prog span{height:8px;width:26px;background:var(--line)}.prog span.sh{width:14px;border-top:3px solid var(--bad);height:8px}.prog span.d{background:var(--accent)}.prog span.sh.d{background:var(--accent);border-top-color:var(--bad)}
+.hud-b{display:flex;gap:22px;align-items:center;padding:14px;flex-wrap:wrap}
+.rank{text-align:center;min-width:110px}.rank b{font:700 104px/.9 var(--fd);display:block;font-variant-numeric:tabular-nums}.rank small{font:600 14px var(--fd);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.info{flex:1;min-width:200px}.info .big{font:600 24px var(--fd);font-variant-numeric:tabular-nums}
+.targets{display:flex;gap:10px;margin:10px 0}.disc{width:34px;height:34px;border-radius:50%;border:3px solid var(--ring)}.disc.h{background:var(--hit)}.disc.m{background:var(--miss)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;padding:0 14px 14px}.acts .btn{flex:1 1 150px;text-align:center}.acts .btn small{display:block;font:400 12px var(--fb);letter-spacing:0;text-transform:none;opacity:.85}
+.mini{padding:0 14px 14px}
+.medal{font:700 22px var(--fd);text-transform:uppercase}.g{color:var(--gold)}.s{color:var(--silver)}.b{color:var(--bronze)}
+.up{color:var(--good)}.dn{color:var(--bad)}
+details summary{cursor:pointer;font:600 16px var(--fd);letter-spacing:.05em;text-transform:uppercase}
+@media (max-width:520px){h1{font-size:28px}.rank b{font-size:84px}.stat{grid-template-columns:110px 1fr 34px}}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin:0 0 8px}.tabs .opt{padding:3px 8px;font:600 13px var(--fd);letter-spacing:.04em;text-transform:uppercase}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<main id="app"></main>
+<script>
+'use strict';
+/* ===== Narzędzia ===== */
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const gauss=()=>{let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(6.283185307*v)};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const wpick=(it,w)=>{let r=Math.random()*w.reduce((x,y)=>x+y,0);for(let i=0;i<it.length;i++){r-=w[i];if(r<=0)return it[i]}return it[it.length-1]};
+
+/* ===== Dane ===== */
+const STATS=[
+['end','Wytrzymałość','Dłużej utrzymujesz tempo i szybciej dochodzisz do siebie przed strzelnicą.'],
+['tech','Technika biegu','Szybciej pokonujesz pętlę przy tym samym wysiłku.'],
+['str','Siła','Siła rąk i tułowia: odbicia kijkami, podbiegi.'],
+['prone','Strzelanie leżąc','Celność w pozycji leżącej.'],
+['stand','Strzelanie stojąc','Celność w pozycji stojącej, zwykle trudniejsza.'],
+['tempo','Tempo na strzelnicy','Krócej stoisz na strzelnicy.'],
+['ment','Odporność psychiczna','Lepiej strzelasz pod presją: ostatnie strzelanie, mistrzostwa, igrzyska.']];
+const SL=Object.fromEntries(STATS.map(s=>[s[0],s[1]]));
+const COUNTRIES=[
+{c:'NOR',n:'Norwegia',t:1,g:'nor',d:'Potęga biathlonu. Najlepsze zaplecze, ale o miejsce w kadrze trzeba bić się z dziesiątkami talentów.'},
+{c:'FRA',n:'Francja',t:1,g:'fra',d:'Świetna szkoła strzelecka i silny sztab. Kadra bardzo liczna.'},
+{c:'GER',n:'Niemcy',t:1,g:'ger',d:'Wiele ośrodków i trenerów, a konkurencja w kadrze ogromna.'},
+{c:'SWE',n:'Szwecja',t:1,g:'nor',d:'Długa tradycja, dobre warunki treningowe i mocna konkurencja.'},
+{c:'ITA',n:'Włochy',t:2,g:'ita',d:'Trasy w Południowym Tyrolu i dobry system juniorski.'},
+{c:'AUT',n:'Austria',t:2,g:'ger',d:'Solidne zaplecze i wyrównana kadra.'},
+{c:'CZE',n:'Czechy',t:2,g:'sla',d:'Stabilna kadra z długą tradycją.'},
+{c:'SUI',n:'Szwajcaria',t:2,g:'ger',d:'Mała, ale dobrze zorganizowana reprezentacja.'},
+{c:'UKR',n:'Ukraina',t:2,g:'sla',d:'Utalentowani zawodnicy, trudniejsze warunki do pracy.'},
+{c:'USA',n:'USA',t:2,g:'eng',d:'Niewielka kadra, łatwiej o start, trudniej o zaplecze.'},
+{c:'FIN',n:'Finlandia',t:2,g:'fin',d:'Dobre warunki biegowe i spokojna rywalizacja o miejsce.'},
+{c:'POL',n:'Polska',t:3,g:'sla',d:'Skromniejsze zaplecze, za to mała konkurencja o miejsce w kadrze. Większość drogi przejdziesz własną pracą.'},
+{c:'SVK',n:'Słowacja',t:3,g:'sla',d:'Mała kadra i ośrodek w Osrblie. Szansa na szybki awans.'},
+{c:'SLO',n:'Słowenia',t:3,g:'sla',d:'Kadra niewielka, treningi w Pokljuce.'},
+{c:'BUL',n:'Bułgaria',t:3,g:'sla',d:'Skromne warunki, mało rywali o miejsce w kadrze.'},
+{c:'EST',n:'Estonia',t:3,g:'fin',d:'Mała reprezentacja z ambicjami.'},
+{c:'LAT',n:'Łotwa',t:3,g:'fin',d:'Niewielka kadra, kilka mocnych nazwisk.'},
+{c:'CAN',n:'Kanada',t:3,g:'eng',d:'Kadra niewielka, długie podróże na starty.'}];
+const cof=c=>COUNTRIES.find(x=>x.c===c);
+const NM={
+nor:{m:['Eirik','Sander','Halvor','Tobias','Magnus','Henrik','Anders','Kristian'],f:['Ingrid','Sigrid','Thea','Marit','Silje','Hanne','Live','Astrid'],s:['Aasland','Brekke','Dalen','Fjeld','Haugen','Lundgren','Moen','Strand','Tveit','Vik']},
+ger:{m:['Lukas','Jonas','Felix','Moritz','Paul','Niklas','Tim','Leon'],f:['Lena','Anna','Mia','Johanna','Clara','Nele','Hannah','Greta'],s:['Brandt','Köhler','Lange','Meißner','Neumann','Roth','Seidel','Voigt','Wendt','Zimmer']},
+fra:{m:['Antoine','Julien','Mathis','Hugo','Théo','Baptiste','Lucas','Romain'],f:['Camille','Chloé','Manon','Léa','Océane','Louise','Jade','Clémence'],s:['Berthier','Carrel','Duval','Garnier','Lambert','Morel','Perrin','Roux','Vidal','Blanc']},
+ita:{m:['Matteo','Luca','Marco','Davide','Simone','Andrea','Fabio','Nicola'],f:['Giulia','Sofia','Chiara','Elena','Martina','Sara','Alice','Federica'],s:['Bertolini','Costa','De Luca','Ferrari','Galli','Moretti','Pellegrini','Rinaldi','Santoro','Villa']},
+sla:{m:['Marek','Tomasz','Jakub','Piotr','Ondřej','Andrij','Matej','Jan','Bartosz','Pavel'],f:['Anna','Kateřina','Marta','Oksana','Zuzana','Natalia','Ewa','Petra','Magda','Irena'],s:['Novák','Kowal','Horvat','Kovač','Bondar','Tkach','Zelenka','Marek','Petrov','Krejčí']},
+eng:{m:['Ethan','Caleb','Owen','Logan','Tyler','Garrett','Noah','Eli'],f:['Emma','Hailey','Claire','Megan','Paige','Rachel','Nora','Tessa'],s:['Hawkins','Brooks','Callahan','Dawson','Ellis','Fletcher','Harper','Mercer','Sutton','Whitaker']},
+fin:{m:['Eetu','Mikko','Olli','Jussi','Tuomas','Aleksi','Ville','Joonas'],f:['Aino','Elina','Heidi','Venla','Noora','Sanna','Tiia','Katja'],s:['Hakala','Järvinen','Koskinen','Lehtonen','Mäkelä','Nieminen','Ojala','Rantanen','Salminen','Virtanen']}};
+
+const FORMATS={
+sprint:{k:'sprint',n:'Sprint',km:[10,7.5],base:[1380,1160],loops:3,shoots:['P','S'],pen:'loop',info:'Dwa strzelania: leżąc i stojąc. Za każde pudło rundka karna 150 m.'},
+pursuit:{k:'pursuit',n:'Bieg pościgowy',km:[12.5,10],base:[1650,1480],loops:5,shoots:['P','P','S','S'],pen:'loop',info:'Start z różnicami czasowymi ze sprintu. Awansuje 60 najlepszych. Cztery strzelania, rundki karne.'},
+individual:{k:'individual',n:'Bieg indywidualny',km:[20,15],base:[2600,2190],loops:5,shoots:['P','S','P','S'],pen:'min',info:'Start co 30 sekund, cztery strzelania. Za każde pudło minuta kary doliczona do czasu.'},
+mass:{k:'mass',n:'Bieg masowy',km:[15,12.5],base:[1950,1820],loops:5,shoots:['P','P','S','S'],pen:'loop',info:'Wspólny start 30 najlepszych z klasyfikacji. Cztery strzelania, rundki karne.'}};
+
+const LEVELS=[
+{n:'Puchar Juniorów IBU',s:'Juniorzy',N:59,mu:44,sd:9,cw:[2,2,2],cut:48,chR:['sprint','pursuit','individual'],xp:5,v:['Obertilliach','Ridnaun','Brezno-Osrblie','Arber','Martell','Lenzerheide']},
+{n:'Puchar IBU',s:'Puchar IBU',N:79,mu:56,sd:8,cw:[2.5,3,2],cut:60,chR:['sprint','pursuit','mass'],xp:9,v:['Sjusjøen','Idre Fjäll','Arber','Martell','Ridnaun','Brezno-Osrblie']},
+{n:'Puchar Świata',s:'Puchar Świata',N:99,mu:66,sd:10,cw:[5,3,1.5],cut:75,chR:['sprint','pursuit','individual','mass'],xp:14,v:['Östersund','Hochfilzen','Le Grand-Bornand','Oberhof','Ruhpolding','Antholz-Anterselva']}];
+
+const sLabel=y=>y+'/'+String(y+1).slice(2);
+const isOly=y=>y+1>=2030&&(y+1-2030)%4===0;
+const champName=S=>S.level===2?(isOly(S.year)?'Igrzyska Olimpijskie '+(S.year+1):'Mistrzostwa Świata '+(S.year+1)):S.level===1?'Mistrzostwa Europy '+(S.year+1):'Mistrzostwa Świata Juniorów '+(S.year+1);
+
+/* ===== Zawodnicy ===== */
+function genField(level,gender){const LV=LEVELS[level],f=[],used=new Set();
+ for(let i=1;i<=LV.N;i++){
+  const co=wpick(COUNTRIES,COUNTRIES.map(c=>LV.cw[c.t-1])),P=NM[co.g];let nm,tr=0;
+  do{nm=pick(gender?P.f:P.m)+' '+pick(P.s)}while(used.has(nm)&&++tr<8);used.add(nm);
+  const r=clamp(LV.mu+gauss()*LV.sd,15,95),q=()=>clamp(r+gauss()*6,10,99);
+  f.push({id:i,name:nm,co:co.c,end:q(),tech:q(),str:q(),prone:clamp(r+gauss()*7,10,99),stand:clamp(r-4+gauss()*7,10,99),tempo:q(),ment:q(),form:50+gauss()*5})}
+ return f}
+const meAth=G=>({id:0,me:1,name:G.name,co:G.country,...G.stats,ment:G.stats.ment+Math.min(10,G.exp/60),form:G.form});
+const skiPow=a=>.5*a.end+.32*a.tech+.18*a.str;
+
+/* ===== Symulacja biegu ===== */
+const EFF={easy:{m:1.028,f:.02},norm:{m:1,f:.07},hard:{m:.972,f:.14}};
+const newSt=a=>({a,t:0,fat:0,miss:[],hits:[],nz:gauss()*.008,rf:a.form+gauss()*6});
+function skiLoop(st,F,ctx,eff){const a=st.a,e=EFF[eff];
+ const T=F.base[ctx.g]/F.loops*(1-(skiPow(a)-60)*.0017)*(1-(st.rf-50)*.0008)*(1+st.nz)*(1+gauss()*.0035)*e.m*(1+Math.max(0,st.fat-.5)*.05);
+ st.fat=clamp(st.fat+e.f*(1.3-a.end/100*.7),0,1);st.t+=T;return T}
+function shoot(st,F,ctx,k,style){const a=st.a,pos=F.shoots[k],acc=pos==='P'?a.prone:a.stand,press=ctx.champ||k===F.shoots.length-1;
+ let p=.5+.46*Math.pow(clamp(acc,0,100)/100,1.15);
+ p-=st.fat*.13;p+=(a.ment-50)*(press?.0007:.0003);
+ p+=style==='safe'?.05:style==='fast'?-.07:0;
+ p-=ctx.wind*(pos==='S'?.006:.003)*(.7+Math.random()*.6);
+ p=clamp(p,.3,.985);
+ const hits=[];let miss=0;for(let j=0;j<5;j++){const h=Math.random()<p;hits.push(h);if(!h)miss++}
+ const rt=(pos==='P'?25:30)*(1.1-a.tempo*.0025)+(style==='safe'?5:style==='fast'?-4:0)+gauss()*1.2+miss*1.2;
+ const pen=F.pen==='min'?60*miss:miss*clamp(25+(80-skiPow(a))*.05,22,30);
+ st.t+=rt+pen;st.fat=clamp(st.fat-.05,0,1);st.miss.push(miss);st.hits.push(hits);
+ return{hits,miss,rt,pen,pos,p}}
+function simRival(a,off,F,ctx){const st=newSt(a),o=F.k==='pursuit'?off:0,t=[];
+ for(let i=0;i<F.loops;i++){skiLoop(st,F,ctx,wpick(['easy','norm','hard'],[.15,.7,.15]));
+  if(i<F.shoots.length){t.push(st.t+o);shoot(st,F,ctx,i,wpick(['safe','norm','fast'],[.12,.76,.12]));t.push(st.t+o)}}
+ t.push(st.t+o);return{a,off:o,t,miss:st.miss}}
+
+function cupTable(G,k){const S=G.S,P=k?((S.cupK||{})[k]||{}):S.cup;
+ return[{id:0,name:G.name,co:G.country,me:1,pts:P[0]||0},...S.field.map(r=>({id:r.id,name:r.name,co:r.co,pts:P[r.id]||0}))]
+ .sort((a,b)=>b.pts-a.pts||(a.me?1:0)-(b.me?1:0)||a.id-b.id)}
+const myRank=G=>cupTable(G).findIndex(x=>x.me)+1;
+
+function startList(G,S,ev){
+ let all=[meAth(G),...S.field];
+ if(ev.champ&&S.champ)all=all.filter(a=>S.champ.includes(a.id));
+ if(ev.k==='pursuit'){const src=S.cal[ev.src].full||[],top=src.slice(0,60);
+  if(!top.length)return{skip:'Brak wyników sprintu.'};
+  if(!top.some(x=>x.id===0))return{skip:`Nie awansowałeś do pościgu: ${src.findIndex(x=>x.id===0)+1}. miejsce w sprincie, awansuje 60 najlepszych.`};
+  const w=top[0].t;return{list:top.map(x=>({a:all.find(y=>y.id===x.id),off:x.t-w}))}}
+ if(ev.k==='mass'){const srt=[...all].sort((a,b)=>(S.cup[b.id]||0)-(S.cup[a.id]||0)||(a.me?1:0)-(b.me?1:0)||a.id-b.id),top=srt.slice(0,30);
+  if(!top.some(a=>a.me))return{skip:`Nie zakwalifikowałeś się do biegu masowego: ${srt.findIndex(a=>a.me)+1}. miejsce w klasyfikacji, startuje 30 najlepszych.`};
+  return{list:top.map(a=>({a,off:0}))}}
+ return{list:all.map(a=>({a,off:0}))}}
+
+function openRace(G,S,ev){const sl=startList(G,S,ev);if(sl.skip)return{skip:sl.skip};
+ const F=FORMATS[ev.k],ctx={g:G.gender,wind:rnd(0,6),champ:!!ev.champ},riv=[];let me;
+ sl.list.forEach(x=>{if(x.a.me)me={a:x.a,off:F.k==='pursuit'?x.off:0,st:newSt(x.a),t:[]};else riv.push(simRival(x.a,x.off,F,ctx))});
+ return{ev,F,ctx,riv,me,n:sl.list.length,loop:0,shot:0}}
+function mySki(R,eff){skiLoop(R.me.st,R.F,R.ctx,eff);R.loop++;R.me.t.push(R.me.st.t+R.me.off);return R.shot<R.F.shoots.length?'arr':'fin'}
+function myShoot(R,style){const r=shoot(R.me.st,R.F,R.ctx,R.shot,style);R.me.t.push(R.me.st.t+R.me.off);R.shot++;return r}
+function rankAt(R,cp){const n=Math.ceil(cp/2),L=R.riv.map(r=>({a:r.a,t:r.t[cp],m:r.miss.slice(0,n)}));L.push({a:R.me.a,t:R.me.t[cp],m:R.me.st.miss.slice(0,n)});
+ L.sort((x,y)=>x.t-y.t);L.forEach((x,i)=>{x.rank=i+1;x.gap=x.t-L[0].t});return L}
+const PTS=[90,75,60,50,45,40,36,34,32,31];
+const pts=p=>p<=10?PTS[p-1]:p<=40?41-p:0;
+
+function finish(G,S,R){const cp=R.me.t.length-1,L=rankAt(R,cp),mine=L.find(x=>x.a.me),ev=R.ev,place=mine.rank;
+ if(!ev.champ){S.cupK=S.cupK||{};const K=S.cupK[ev.k]=S.cupK[ev.k]||{};L.forEach(x=>{S.cup[x.a.id]=(S.cup[x.a.id]||0)+pts(x.rank);K[x.a.id]=(K[x.a.id]||0)+pts(x.rank)})}
+ const p=ev.champ?0:pts(place);
+ G.sh=G.sh||{P:[0,0],S:[0,0]};S.sh=S.sh||{P:[0,0],S:[0,0]};
+ R.me.st.hits.forEach((hh,k)=>{const pos=R.F.shoots[k],h=hh.filter(Boolean).length;[G.sh,S.sh].forEach(o=>{o[pos][0]+=h;o[pos][1]+=5})});
+ ev.res={place,n:L.length,time:R.me.st.t,gap:mine.gap,miss:R.me.st.miss.slice(),pts:p};
+ if(ev.k==='sprint')ev.full=L.map(x=>({id:x.a.id,t:x.t}));
+ let xp=LEVELS[S.level].xp+(place<=3?8:place<=10?4:place<=30?2:0)+(ev.champ?6:0);
+ G.exp+=xp;G.starts++;if(place===1)G.wins++;if(place<=3)G.pod++;
+ if(!ev.champ&&(S.best==null||place<S.best))S.best=place;
+ if(ev.champ){if(S.champBest==null||place<S.champBest)S.champBest=place;if(place<=3)G.medals.push({y:S.year,ev:ev.v,race:R.F.n,place})}
+ G.form=clamp(G.form+gauss()*2-.3,25,85);
+ return{L,mine,place,xp,pts:p}}
+
+/* ===== Sezon ===== */
+function buildCal(level){const LV=LEVELS[level],cal=[];
+ [['sprint','pursuit'],['individual','mass'],['sprint','pursuit'],['sprint','pursuit'],['mass','individual'],['sprint','pursuit']]
+ .forEach((w,wi)=>w.forEach(k=>cal.push({k,v:LV.v[wi],blk:wi<3?1:2,res:null,champ:false,src:k==='pursuit'?cal.length-1:undefined})));
+ return cal}
+function startSeason(G){G.form=50;G.S={year:G.year,level:G.level,field:genField(G.level,G.gender),cup:{},cupK:{},cal:buildCal(G.level),i:0,phase:'train1',best:null,champ:null,champBest:null,sh:{P:[0,0],S:[0,0]},champName:'',champMsg:'',msg:''}}
+function newGame(o){const co=cof(o.co),bonus=[4,2,0][co.t-1],s={};
+ STATS.forEach(([k])=>s[k]=clamp(38+bonus+gauss()*3,15,70));
+ const P={shoot:{prone:8,stand:8,ment:4,end:-6,str:-4},run:{end:8,tech:6,str:4,prone:-6,stand:-6},all:{end:3,tech:3,str:3,prone:3,stand:3,tempo:3,ment:3}}[o.prof];
+ for(const k in P)s[k]+=P[k];
+ const G={name:o.name||'Zawodnik',gender:o.g,country:o.co,prof:o.prof,year:2026,age:16,level:0,stats:s,exp:0,form:50,hist:[],medals:[],wins:0,pod:0,globes:0,starts:0,over:null,S:null,sum:null,small:[],sh:{P:[0,0],S:[0,0]}};
+ startSeason(G);return G}
+
+function gainFor(G,key,share,mul){const a=G.age,af=a<=17?1.3:a<=20?1.2:a<=24?1:a<=28?.75:a<=32?.5:.3,inf=[1.1,1,.92][cof(G.country).t-1];
+ return 6.8*share*af*inf*Math.max(.25,1-G.stats[key]/115)*mul}
+function doTraining(G,main,sec){const S=G.S,mul=S.phase==='train1'?1:.6,out=[];
+ G.form=clamp(48+gauss()*5,30,66);
+ [[main,1],[sec,.5]].forEach(([k,sh])=>{if(!k)return;
+  if(k==='rec'){const b=sh===1?14:7;G.form=clamp(G.form+b,20,90);out.push(['Regeneracja','forma +'+b]);return}
+  const g=gainFor(G,k,sh,mul)*rnd(.8,1.2);G.stats[k]=Math.min(99,G.stats[k]+g);out.push([SL[k],'+'+g.toFixed(1)])});
+ S.phase=S.phase==='train1'?'b1':'b2';S.msg=S.msg||'';return out}
+function naturalDev(G){const a=G.age,d=a<=18?3:a<=21?2.2:a<=25?1.2:a<=29?.3:-.4;
+ STATS.forEach(([k])=>{let x=d+gauss()*.6;if(a>29&&(k==='end'||k==='str'))x-=(a-29)*.25;if(k==='ment'&&a<=34)x+=.5;if(a>=36&&(k==='prone'||k==='stand'))x-=.3;G.stats[k]=clamp(G.stats[k]+x,5,99)})}
+
+function midBreak(G){const S=G.S,rk=myRank(G),old=S.level;let up=false;
+ if(S.level===0&&rk<=2&&G.age>=17)up=true;
+ if(S.level===1&&rk<=3)up=true;
+ S.msg='';
+ if(up){G.level=S.level=old+1;S.field=genField(S.level,G.gender);S.cup={};S.cupK={};S.best=null;
+  S.cal.splice(6,6,...buildCal(S.level).slice(6));
+  S.msg=`Świetna pierwsza część sezonu (${rk}. miejsce w klasyfikacji). Trener powołał Cię do rywalizacji w lidze: ${LEVELS[S.level].n}. Druga część sezonu odbędzie się już tam.`}}
+function enterChamps(G){const S=G.S,LV=LEVELS[S.level],tab=cupTable(G),cnt={},set=[],name=champName(S);
+ tab.forEach((x,i)=>{cnt[x.co]=(cnt[x.co]||0)+1;if(cnt[x.co]<=4&&i<LV.cut)set.push(x.id)});
+ if(set.includes(0)){S.champ=set;S.champName=name;S.phase='champ';
+  LV.chR.forEach(k=>S.cal.push({k,v:name,blk:3,champ:true,res:null,src:k==='pursuit'?S.cal.length-1:undefined}))}
+ else{const mates=tab.filter(x=>x.co===G.country),mr=mates.findIndex(x=>x.me)+1,ov=tab.findIndex(x=>x.me)+1;
+  S.phase='done';S.champMsg=`Nie jedziesz na: ${name}. Kwalifikacja wymaga miejsca w czwórce najlepszych rodaków (u Ciebie: ${mr}.) i miejsca w klasyfikacji w pierwszej ${LV.cut} (u Ciebie: ${ov}.).`}}
+function advance(G){const S=G.S,ev=S.cal[S.i];
+ if(ev&&ev.k==='pursuit'&&S.cal[ev.src])S.cal[ev.src].full=null;
+ S.i++;
+ if(S.phase==='b1'&&S.i>=6){S.phase='train2';midBreak(G)}
+ else if(S.phase==='b2'&&S.i>=12)enterChamps(G);
+ else if(S.phase==='champ'&&S.i>=S.cal.length)S.phase='done'}
+function playQuick(G){const S=G.S,ev=S.cal[S.i],R=openRace(G,S,ev);
+ if(R.skip){ev.res={skip:R.skip};advance(G);return null}
+ for(let i=0;i<R.F.loops;i++)if(mySki(R,'norm')==='arr')myShoot(R,'norm');
+ const o=finish(G,S,R);advance(G);return o}
+function playBlock(G){const ph=G.S.phase;let n=0;while(G.S.phase===ph&&n++<40)playQuick(G)}
+
+function endSeason(G){const S=G.S,rk=myRank(G),pt=S.cup[0]||0,lines=[];
+ const rec={y:S.year,age:G.age,lv:S.level,rk,pts:pt,best:S.best,champ:S.champBest?`${S.champName}: ${S.champBest}. miejsce`:'',n:S.field.length+1};
+ if(S.level===2&&rk===1){G.globes++;lines.push('Wygrywasz klasyfikację generalną Pucharu Świata. Kryształowa Kula jest Twoja!')}
+ if(S.champName)lines.push(S.champBest?`${S.champName}: najlepszy wynik to ${S.champBest}. miejsce.`:'');
+ G.small=G.small||[];Object.keys(FORMATS).forEach(k=>{const t=cupTable(G,k);if(t[0].me&&t[0].pts>0){G.small.push({y:S.year,lv:S.level,k});lines.push(`Mała kula w klasyfikacji: ${FORMATS[k].n} (${LEVELS[S.level].s}).`)}});
+ G.hist.push(rec);
+ G.age++;G.year++;naturalDev(G);
+ let nl=G.level;
+ if(G.level===0&&(rk<=8||(G.age>=20&&rk<=20)||G.age>=22)){nl=1;lines.push(rk<=8?`Miejsce ${rk}. w Pucharze Juniorów otwiera drzwi do kadry Pucharu IBU.`:'Awansujesz do Pucharu IBU, bo wyrosłeś z kategorii juniorskiej.')}
+ else if(G.level===1&&rk<=10){nl=2;lines.push(`Miejsce ${rk}. w Pucharze IBU daje powołanie do Pucharu Świata.`)}
+ else if(G.level===2&&rk>70){nl=1;lines.push(`Miejsce ${rk}. w Pucharze Świata to za mało. Wracasz do Pucharu IBU.`)}
+ else if(G.level===1&&rk>65&&G.age<=22){nl=0;lines.push(`Miejsce ${rk}. w Pucharze IBU. Wracasz do juniorów, żeby się odbudować.`)}
+ if(G.level===1&&rk>65&&G.age>=26&&nl===1){G.over={reason:'Po słabym sezonie w Pucharze IBU kadra nie przedłużyła z Tobą współpracy.'}}
+ if(G.age>=41&&!G.over)G.over={reason:'Dochodzisz do wieku, w którym kończą nawet najwytrwalsi. Czas na zasłużoną emeryturę.'};
+ lines.unshift(`Sezon ${sLabel(S.year)} zakończony: ${rk}. miejsce w klasyfikacji ${LEVELS[S.level].n} (${pt} pkt).`);
+ G.level=nl;G.sum={lines:lines.filter(Boolean),rec};
+ if(!G.over)startSeason(G);return G.sum}
+const retire=(G,why)=>{G.over={reason:why||'Sam zdecydowałeś o zakończeniu kariery.'}};
+
+if(typeof module!=='undefined')module.exports={newGame,startSeason,doTraining,playQuick,playBlock,endSeason,cupTable,myRank,openRace,mySki,myShoot,finish,advance,rankAt,STATS,COUNTRIES,LEVELS,FORMATS};
+/* ===== Interfejs ===== */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fT=(s,d=1)=>{const m=Math.floor(s/60),x=s-m*60;return m+':'+(x<10?'0':'')+x.toFixed(d)};
+const fG=s=>s<.05?'—':'+'+fT(s);
+const KEY='biathlon_kariera_v1';
+let G=null,R=null,TR={main:null,sec:null},SEL={co:'POL',g:0,prof:'all'};
+const save=()=>{try{if(G)localStorage.setItem(KEY,JSON.stringify(G))}catch(e){}};
+const load=()=>{try{const s=localStorage.getItem(KEY);return s?JSON.parse(s):null}catch(e){return null}};
+const wipe=()=>{try{localStorage.removeItem(KEY)}catch(e){}};
+function put(h,wide){$('#app').innerHTML=`<header class="top"><div class="brand">Kariera biathlonisty</div>${G&&!G.over?`<div class="meta">${sLabel(G.year)} · ${G.age} lat · ${G.country} · ${LEVELS[G.level].s}</div>`:''}</header><div class="${wide?'':'narrow'}">${h}</div>`;window.scrollTo(0,0)}
+const miss=a=>a.join('+');
+
+/* --- start --- */
+function vStart(){const sv=load();
+ put(`<section class="card"><h1>Zacznij karierę</h1>
+ <p class="lead">Masz 16 lat i startujesz w Pucharze Juniorów. Dalej czeka Puchar IBU, zaplecze Pucharu Świata, a na końcu mistrzostwa i igrzyska. Dwa razy w sezonie wybierasz, nad czym pracujesz.</p>
+ ${sv&&!sv.over?`<div class="note row sp"><span><b>Zapisana kariera:</b> ${esc(sv.name)}, ${sv.country}, sezon ${sLabel(sv.year)}.</span><button class="btn pri" data-act="cont">Kontynuuj</button></div>`:''}
+ <label class="fl" for="nm">Imię i nazwisko</label><input type="text" id="nm" maxlength="28" placeholder="np. Jan Kowalski">
+ <span class="fl">Płeć (wpływa na dystanse)</span><div class="seg" data-grp="g"><button class="opt on" data-act="pick" data-k="g" data-v="0">Mężczyzna</button><button class="opt" data-act="pick" data-k="g" data-v="1">Kobieta</button></div>
+ <span class="fl">Reprezentujesz</span><div class="cg" data-grp="co">${COUNTRIES.map(c=>`<button class="opt${c.c==='POL'?' on':''}" data-act="pick" data-k="co" data-v="${c.c}"><b>${c.c}</b><span>${c.n}</span></button>`).join('')}</div>
+ <div class="note" id="cd"></div>
+ <span class="fl">Profil na starcie</span><div class="seg" data-grp="prof"><button class="opt" data-act="pick" data-k="prof" data-v="shoot">Strzelec<br><span class="mute small">celniej, słabsza forma biegowa</span></button><button class="opt" data-act="pick" data-k="prof" data-v="run">Biegacz<br><span class="mute small">szybkie narty, słabsze strzelanie</span></button><button class="opt on" data-act="pick" data-k="prof" data-v="all">Wszechstronny<br><span class="mute small">równy poziom</span></button></div>
+ <p style="margin-top:18px"><button class="btn pri" data-act="new">Zaczynam karierę</button></p></section>`);
+ cdesc()}
+function cdesc(){const c=cof(SEL.co);$('#cd').innerHTML=`<b>${c.n}.</b> ${c.d}<br><span class="small mute">Zaplecze treningowe: ${['bardzo dobre','dobre','skromne'][c.t-1]} · Konkurencja o miejsce w kadrze: ${['bardzo duża','duża','mała'][c.t-1]}</span>`}
+
+/* --- trening --- */
+function vTrain(){const S=G.S,first=S.phase==='train1',mul=first?1:.6;
+ const rows=STATS.map(([k,l,h])=>{const v=G.stats[k],e=gainFor(G,k,1,mul);
+  return`<div class="tr-row"><div><b>${l}</b> <span class="mute">${v.toFixed(0)}</span><div class="h">${h}</div><div class="h">Główny: ok. +${e.toFixed(1)} · dodatkowy: ok. +${(e/2).toFixed(1)}</div></div>
+  <div class="seg"><button class="opt${TR.main===k?' on':''}" data-act="tr" data-w="main" data-k="${k}">Główny</button><button class="opt${TR.sec===k?' on':''}" data-act="tr" data-w="sec" data-k="${k}">Dodatkowy</button></div></div>`}).join('');
+ put(`<section class="card"><h2>${first?'Okres przygotowawczy':'Przerwa zimowa'}</h2>
+ <p class="lead">${first?'Lato i jesień: najważniejszy czas na budowanie formy. Wybierz jeden element główny i jeden dodatkowy.':'Krótki blok w trakcie sezonu. Efekty są o 40% mniejsze niż latem.'}</p>
+ ${S.msg?`<div class="note"><b>Powołanie.</b> ${esc(S.msg)}</div>`:''}
+ <div class="row small mute" style="margin-bottom:6px"><span>Forma: <b>${G.form.toFixed(0)}</b></span><span>Doświadczenie: <b>${G.exp}</b> pkt</span></div>
+ ${rows}
+ <div class="tr-row"><div><b>Regeneracja</b><div class="h">Bez przyrostu parametrów. Główny: forma +14, dodatkowy: forma +7. Wyższa forma to szybsze narty w zawodach.</div></div>
+ <div class="seg"><button class="opt${TR.main==='rec'?' on':''}" data-act="tr" data-w="main" data-k="rec">Główny</button><button class="opt${TR.sec==='rec'?' on':''}" data-act="tr" data-w="sec" data-k="rec">Dodatkowy</button></div></div>
+ <p style="margin-top:14px"><button class="btn pri" data-act="traindo" ${TR.main?'':'disabled'}>Zatwierdź trening</button> <span class="mute small">${TR.main?'':'Wybierz element główny.'}</span></p></section>`)}
+
+/* --- hub --- */
+function bars(){return STATS.map(([k,l])=>`<div class="stat"><span>${l}</span><div class="bar"><i style="width:${G.stats[k].toFixed(0)}%"></i></div><b>${G.stats[k].toFixed(0)}</b></div>`).join('')}
+function resTxt(ev){const r=ev.res;if(!r)return'';if(r.skip)return'<span class="mute">nie startujesz</span>';
+ return`${r.place}. <span class="mute small">${r.place===1?fT(r.time):fG(r.gap)} · ${miss(r.miss)}</span>`}
+function calHtml(S){let h='',blk=0;S.cal.forEach((ev,i)=>{if(ev.blk!==blk){blk=ev.blk;h+=`<div class="ev sep">${blk===1?'Część pierwsza':blk===2?'Część druga':esc(S.champName)}</div>`}
+ h+=`<div class="ev${i===S.i&&S.phase!=='done'?' cur':''}"><span class="n">${i+1}</span><span>${esc(ev.v)} · ${FORMATS[ev.k].n}</span><span class="res">${resTxt(ev)}</span></div>`});return h}
+function tblRows(tab,max){const me=tab.findIndex(x=>x.me),show=new Set();for(let i=0;i<max;i++)show.add(i);[me-1,me,me+1].forEach(i=>{if(i>=0&&i<tab.length)show.add(i)});
+ let h='',last=-1;[...show].sort((a,b)=>a-b).forEach(i=>{if(last>=0&&i>last+1)h+='<tr class="gap"><td colspan="4">···</td></tr>';last=i;h+=`<tr class="${tab[i].me?'me':''}"><td>${i+1}</td><td>${esc(tab[i].name)}</td><td>${tab[i].co}</td><td class="r">${tab[i].pts}</td></tr>`});return h}
+function shStats(){const S=G.S,a=G.sh||{P:[0,0],S:[0,0]},b=S.sh||{P:[0,0],S:[0,0]};
+ const f=x=>x[1]?`${Math.round(x[0]/x[1]*100)}% <span class="mute small">(${x[0]}/${x[1]})</span>`:'—',t=u=>[u.P[0]+u.S[0],u.P[1]+u.S[1]];
+ return`<h3 style="margin-top:14px">Strzelanie</h3><div class="sc"><table class="tbl"><tr><th>Skuteczność</th><th class="r">Sezon</th><th class="r">Kariera</th></tr><tr><td>Leżąc</td><td class="r">${f(b.P)}</td><td class="r">${f(a.P)}</td></tr><tr><td>Stojąc</td><td class="r">${f(b.S)}</td><td class="r">${f(a.S)}</td></tr><tr><td><b>Razem</b></td><td class="r">${f(t(b))}</td><td class="r">${f(t(a))}</td></tr></table></div>`}
+let CT='all';
+const CTL=[['all','Generalna'],['sprint','Sprint'],['pursuit','Pościg'],['individual','Indywidualny'],['mass','Masowy']];
+function cupBox(){const S=G.S,LV=LEVELS[S.level],tab=cupTable(G,CT==='all'?null:CT),rk=tab.findIndex(x=>x.me)+1,lead=tab[0];
+ const sub=CT==='all'?(S.level===2?'Klasyfikacja generalna (Kryształowa Kula)':'Klasyfikacja generalna'):(S.level===2?'Mała Kryształowa Kula':'Mała kula')+' · '+FORMATS[CT].n;
+ return`<h3>${LV.n}</h3><div class="tabs">${CTL.map(c=>`<button class="opt${c[0]===CT?' on':''}" data-act="ct" data-v="${c[0]}">${c[1]}</button>`).join('')}</div>
+ <p class="small"><b>${sub}</b><br><span class="mute">${lead.pts?`Prowadzi: ${esc(lead.name)} (${lead.co}), ${lead.pts} pkt · Twoje miejsce: <b>${rk}</b> z ${tab.length}`:'Nikt jeszcze nie zdobył punktów w tej klasyfikacji.'}</span></p>
+ <div class="sc"><table class="tbl"><tr><th>#</th><th>Zawodnik</th><th>Kraj</th><th class="r">Pkt</th></tr>${tblRows(tab,10)}</table></div>`}
+function shell(mid){const S=G.S;
+ return`<div class="shell"><aside><div class="card"><h3>Kalendarz sezonu ${sLabel(S.year)}</h3>${calHtml(S)}</div></aside><section class="mid">${mid}</section>
+ <aside><div class="card" id="cupbox">${cupBox()}</div></aside></div>`}
+function vHub(){save();const S=G.S,ev=S.cal[S.i],LV=LEVELS[S.level];
+ let nxt='';
+ if(S.phase==='done'){nxt=`<h3>Koniec sezonu</h3><p>${esc(S.champMsg||'Wszystkie starty za Tobą.')}</p><div class="row"><button class="btn pri" data-act="endseason">Podsumowanie sezonu</button></div>`}
+ else{const F=FORMATS[ev.k];nxt=`<h3>${S.phase==='champ'?esc(S.champName):'Następne zawody'}</h3><h2>${esc(ev.v)} · ${F.n}</h2><p>${F.km[G.gender]} km · ${F.info}</p>
+ <div class="row"><button class="btn pri" data-act="race">Start krok po kroku</button><button class="btn" data-act="quick">Symuluj te zawody</button><button class="btn" data-act="block">Symuluj do końca etapu</button></div>`}
+ const h=G.hist.length?`<details class="card"><summary>Historia kariery</summary><div class="sc"><table class="tbl"><tr><th>Sezon</th><th>Wiek</th><th>Liga</th><th>Klasyf.</th><th class="r">Pkt</th><th>Najlepszy</th><th>Mistrzostwa</th></tr>${G.hist.map(r=>`<tr><td>${sLabel(r.y)}</td><td>${r.age}</td><td>${LEVELS[r.lv].s}</td><td>${r.rk}/${r.n}</td><td class="r">${r.pts}</td><td>${r.best||'—'}</td><td>${esc(r.champ||'—')}</td></tr>`).join('')}</table></div></details>`:'';
+ put(shell(`${S.note&&S.noteAt===S.i?`<div class="note"><b>Trening zakończony.</b> ${S.note.map(n=>esc(n[0])+' '+esc(n[1])).join(' · ')}</div>`:''}${S.msg&&S.phase!=='train2'?`<div class="note">${esc(S.msg)}</div>`:''}
+ <div class="card">${nxt}</div>
+ <div class="card"><h3>Zawodnik · ${esc(G.name)}</h3>${bars()}<div class="row small mute"><span>Forma: <b>${G.form.toFixed(0)}</b></span><span>Doświadczenie: <b>${G.exp}</b> pkt</span><span>Zwycięstwa: <b>${G.wins}</b></span><span>Podia: <b>${G.pod}</b></span><span>Medale: <b>${G.medals.length}</b></span><span>Kule: duże <b>${G.globes}</b>, małe <b>${(G.small||[]).length}</b></span></div>${shStats()}</div>${h}
+ ${G.age>=27?'<p><button class="btn" data-act="retire">Zakończ karierę</button></p>':''}`),1)}
+
+/* --- zawody --- */
+function prog(x,fin){let h='',d=x.loop+x.shot+(fin?1:0),n=0;for(let i=0;i<x.F.loops;i++){h+=`<span class="${n++<d?'d':''}"></span>`;if(i<x.F.shoots.length)h+=`<span class="sh ${n++<d?'d':''}"></span>`}return`<div class="prog">${h}</div>`}
+function mini(L,n){const me=L.findIndex(r=>r.a.me),show=new Set([0,1,2]);for(let i=me-3;i<=me+3;i++)if(i>=0&&i<L.length)show.add(i);if(n)for(let i=0;i<n;i++)show.add(i);
+ let h='',last=-1;[...show].sort((a,b)=>a-b).forEach(i=>{if(last>=0&&i>last+1)h+='<tr class="gap"><td colspan="5">···</td></tr>';last=i;const r=L[i];h+=`<tr class="${r.a.me?'me':''}"><td>${r.rank}</td><td>${esc(r.a.name)}</td><td>${r.a.co}</td><td>${r.m.length?miss(r.m):'—'}</td><td class="r">${r.rank===1?fT(r.t):fG(r.gap)}</td></tr>`});
+ return fieldInfo(L)+`<div class="sc"><table class="tbl"><tr><th>#</th><th>Zawodnik</th><th>Kraj</th><th>Pudła</th><th class="r">Czas</th></tr>${h}</table></div>`}
+function fieldInfo(L){const n=L[0].m.length;if(!n)return'';const N=L.length,tot=L.reduce((a,r)=>a+r.m.reduce((x,y)=>x+y,0),0),acc=Math.round((1-tot/(5*n*N))*100),clean=L.filter(r=>r.m.every(x=>!x)).length,lm=L.reduce((a,r)=>a+r.m[n-1],0),la=Math.round((1-lm/(5*N))*100),c1=L.filter(r=>!r.m[n-1]).length;
+ return`<p class="small mute">Stawka po ${n} strzel.: <b>${acc}%</b> trafień · bez pudła do tej pory: <b>${clean}</b> z ${N}. Ostatnie strzelanie: <b>${la}%</b> trafień, ${c1} zawodników bez pudła.</p>`}
+function raceStart(){const S=G.S,ev=S.cal[S.i],x=openRace(G,S,ev);
+ if(x.skip){ev.res={skip:x.skip};advance(G);R=null;put(`<div class="card"><h2>Bez startu</h2><p>${esc(x.skip)}</p><button class="btn pri" data-act="hub">Wróć do kalendarza</button></div>`);return}
+ R={x,ph:'intro',last:null};vRace()}
+function vRace(){const x=R.x,F=x.F,ev=x.ev,ph=R.ph,g=G.gender;
+ const head=`<div class="hud-h"><span>${esc(ev.v)} · ${F.n}</span><span>${F.km[g]} km · wiatr ${x.ctx.wind.toFixed(1)} m/s</span></div>`;
+ let body='';
+ if(ph==='intro'){
+  let st=`Na liście startowej: ${x.n} zawodników.`;
+  if(F.k==='pursuit'){const pos=x.riv.filter(r=>r.off<x.me.off).length+1;st=`Startujesz z ${pos}. pozycji, ze stratą ${fG(x.me.off)} do lidera. ${x.n} zawodników.`}
+  if(F.k==='mass')st=`Wspólny start. Jesteś w gronie 30 najlepszych z klasyfikacji (${myRank(G)}. miejsce).`;
+  body=`<div class="hud-b"><div class="info"><div class="big">${esc(G.name)} · ${G.country}</div><p>${F.info}</p><p>${st}</p>${ev.champ?'<p><b>Wielka stawka.</b> Na mistrzostwach liczy się odporność psychiczna.</p>':''}</div></div><div class="acts"><button class="btn pri" data-act="go">Start</button></div>`}
+ else{
+  const cp=ph==='arr'?2*x.shot:ph==='res'?2*(x.shot-1)+1:ph==='fin'?2*F.shoots.length:null;
+  const L=cp==null?null:rankAt(x,cp),m=L&&L.find(r=>r.a.me);
+  const lastTxt=R.last?`Poprzedni punkt: ${R.last}. miejsce`:'';
+  const pos=m?m.rank:(R.last||'–');
+  const stage=ph==='arr'?`Wbiegasz na strzelnicę (${F.shoots[x.shot]==='P'?'leżąc':'stojąc'})`:ph==='res'?'Wybiegasz ze strzelnicy':ph==='fin'?'Meta':`Pętla ${x.loop+1} z ${F.loops}`;
+  let mid='';
+  if(ph==='res'){const r=R.sh;mid=`<div class="targets">${r.hits.map(h=>`<span class="disc ${h?'h':'m'}"></span>`).join('')}</div><p>${r.miss?`Pudła: <b>${r.miss}</b>. ${F.pen==='min'?'Kara: +1:00 za każde pudło ('+r.miss+' min).':`Rundki karne: ${r.miss} (+${r.pen.toFixed(0)} s).`}`:'<b>Komplet trafień.</b> Bez kary.'} Czas na strzelnicy: ${r.rt.toFixed(0)} s.</p>`}
+  if(ph==='eff')mid=`<p>Wybierz tempo na tej pętli.</p>`;
+  if(m&&ph!=='fin')mid+=`<div class="big">${m.rank===1?'Prowadzisz':'Strata '+fT(m.gap)}</div><div class="small mute">${lastTxt}</div>`;
+  if(ph==='fin'){const o=R.out,r=ev.res;const pp=pos=>{let h=0,n=0;x.me.st.hits.forEach((hh,k)=>{if(F.shoots[k]===pos){h+=hh.filter(Boolean).length;n+=5}});return n?h+'/'+n:'—'};mid=`<div class="big">${r.place===1?'Czas '+fT(r.time):'Strata '+fT(r.gap)+' · czas '+fT(r.time)}</div><p>Pudła: <b>${miss(r.miss)}</b> (${r.miss.reduce((a,b)=>a+b,0)}) · Leżąc: <b>${pp('P')}</b> · Stojąc: <b>${pp('S')}</b> ${ev.champ?'':`· Punkty do klasyfikacji: <b>${r.pts}</b>`} · Doświadczenie: <b>+${o.xp}</b></p>${ev.champ&&r.place<=3?`<p class="medal ${['g','s','b'][r.place-1]}">Medal! ${['Złoto','Srebro','Brąz'][r.place-1]}</p>`:r.place===1?'<p class="medal g">Zwycięstwo!</p>':''}`}
+  let acts='';
+  if(ph==='eff'){const last=x.loop===F.loops-1;acts=[['easy','Oszczędzaj',last?'spokojny finisz':'mniej zmęczenia przed strzelnicą'],['norm','Równe tempo','bezpieczny wybór'],['hard','Atakuj',last?'wszystko na metę':'szybciej, ale gorsza celność']].map(a=>`<button class="btn${a[0]==='norm'?' pri':''}" data-act="eff" data-v="${a[0]}">${a[1]}<small>${a[2]}</small></button>`).join('')}
+  if(ph==='arr')acts=[['safe','Spokojnie','celniej, ale dłużej'],['norm','Normalnie','standardowy rytm'],['fast','Szybko','krócej, ale ryzykownie']].map(a=>`<button class="btn${a[0]==='norm'?' pri':''}" data-act="shoot" data-v="${a[0]}">${a[1]}<small>${a[2]}</small></button>`).join('');
+  if(ph==='res')acts='<button class="btn pri" data-act="next">Dalej</button>';
+  if(ph==='fin')acts='<button class="btn pri" data-act="hub">Wróć do kalendarza</button>';
+  body=`${prog(x,ph==='fin')}<div class="hud-b"><div class="rank"><small>${ph==='eff'?'ostatnio':'miejsce'}</small><b>${pos}</b><small>z ${x.n}</small></div><div class="info"><h3 style="margin:0 0 4px">${stage}</h3>${mid}</div></div><div class="acts">${acts}</div>${L?`<div class="mini">${mini(L,ph==='fin'?10:0)}</div>`:''}`}
+ put(shell(`<div class="hud">${head}${body}</div>`),1)}
+
+/* --- sezon / koniec --- */
+function vSeason(){const s=G.sum,r=s.rec;
+ put(`<section class="card"><h2>Podsumowanie sezonu ${sLabel(r.y)}</h2>${s.lines.map(l=>`<p>${esc(l)}</p>`).join('')}
+ <div class="row small mute"><span>Zwycięstwa: <b>${G.wins}</b></span><span>Podia: <b>${G.pod}</b></span><span>Medale: <b>${G.medals.length}</b></span><span>Kryształowe Kule: <b>${G.globes}</b></span><span>Małe kule: <b>${(G.small||[]).length}</b></span></div>
+ <p style="margin-top:14px"><button class="btn pri" data-act="nextseason">${G.over?'Dalej':'Następny sezon'}</button></p></section>`)}
+function vOver(){const m=G.medals;wipe();
+ put(`<section class="card"><h1>Koniec kariery</h1><p class="lead">${esc(G.over.reason)}</p>
+ <p>${esc(G.name)} (${G.country}) · ${G.hist.length} sezonów · ${G.starts} startów · zwycięstwa: <b>${G.wins}</b> · podia: <b>${G.pod}</b> · Kryształowe Kule: <b>${G.globes}</b> · małe kule: <b>${(G.small||[]).length}</b></p>
+ <h3>Medale mistrzostw</h3>${m.length?m.map(x=>`<p><span class="medal ${['g','s','b'][x.place-1]}">${['Złoto','Srebro','Brąz'][x.place-1]}</span> · ${esc(x.ev)} · ${x.race}</p>`).join(''):'<p class="mute">Bez medalu na wielkiej imprezie. Następnym razem się uda.</p>'}
+ <div class="sc"><table class="tbl"><tr><th>Sezon</th><th>Wiek</th><th>Liga</th><th>Klasyf.</th><th>Mistrzostwa</th></tr>${G.hist.map(r=>`<tr><td>${sLabel(r.y)}</td><td>${r.age}</td><td>${LEVELS[r.lv].s}</td><td>${r.rk}/${r.n}</td><td>${esc(r.champ||'—')}</td></tr>`).join('')}</table></div>
+ <p style="margin-top:14px"><button class="btn pri" data-act="restart">Nowa kariera</button></p></section>`)}
+function go(){if(G.over)return vOver();const ph=G.S.phase;if(ph==='train1'||ph==='train2'){TR={main:null,sec:null};vTrain()}else vHub()}
+
+/* --- zdarzenia --- */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act,d=b.dataset;
+ if(a==='pick'){SEL[d.k]=d.k==='g'?+d.v:d.v;b.parentElement.querySelectorAll('.opt').forEach(o=>o.classList.toggle('on',o===b));if(d.k==='co')cdesc();return}
+ if(a==='new'){G=newGame({name:$('#nm').value.trim().slice(0,28),g:SEL.g,co:SEL.co,prof:SEL.prof});return go()}
+ if(a==='cont'){G=load();return go()}
+ if(a==='tr'){const o=d.w==='main'?'sec':'main';if(TR[o]===d.k)TR[o]=null;TR[d.w]=TR[d.w]===d.k?null:d.k;return vTrain()}
+ if(a==='traindo'){const out=doTraining(G,TR.main,TR.sec);G.S.note=out;G.S.noteAt=G.S.i;return vHub()}
+ if(a==='ct'){CT=d.v;const el=$('#cupbox');if(el)el.innerHTML=cupBox();return}
+ if(a==='hub')return go();
+ if(a==='race')return raceStart();
+ if(a==='quick'){playQuick(G);return go()}
+ if(a==='block'){playBlock(G);return go()}
+ if(a==='go'){R.ph='eff';return vRace()}
+ if(a==='eff'){const x=R.x;R.last=R.last;const s=mySki(x,d.v);if(s==='fin'){R.out=finish(G,G.S,x);advance(G);R.ph='fin'}else R.ph='arr';return vRace()}
+ if(a==='shoot'){const x=R.x,L=rankAt(x,2*x.shot);R.arrive=L.find(r=>r.a.me).rank;R.sh=myShoot(x,d.v);R.ph='res';return vRace()}
+ if(a==='next'){const L=rankAt(R.x,2*(R.x.shot-1)+1);R.last=L.find(r=>r.a.me).rank;R.ph='eff';return vRace()}
+ if(a==='endseason'){endSeason(G);save();return vSeason()}
+ if(a==='nextseason')return go();
+ if(a==='retire'){if(b.dataset.sure){retire(G);return vOver()}b.dataset.sure=1;b.textContent='Na pewno? Kliknij jeszcze raz';return}
+ if(a==='restart'){G=null;R=null;return vStart()}});
+vStart();
+</script>
+
+</body></html>
